@@ -1,0 +1,2 @@
+.chemistry_home_screen{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));grid-gap:1rem;padding:2rem}button{display:inline-block;padding:.2em 1.45em;margin:.1em;border:.15em solid #ccc;box-sizing:border-box;text-decoration:none;font-family:"Segoe UI","Roboto",sans-serif;font-weight:400;color:#000;background-color:#ccc;text-align:center;position:relative}button:hover{border-color:#7a7a7a}button:active{background-color:#999}
+/*# sourceMappingURL=main.31182863.chunk.css.map */
