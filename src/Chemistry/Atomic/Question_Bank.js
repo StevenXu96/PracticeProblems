@@ -14,7 +14,7 @@ export const makeQuestion = (index) => {
         return [q, a, b, c, d, e, ans]
     }
     else if (index%num_of_q === 1){
-        q = `Which is the electron configuration of an atom in the exicted state?`;
+        q = `Which is the electron configuration of an atom in the excited state?`;
         a = "1s2, 2s1";
         b = "1s2, 2s2, 2p1";
         c = "1s2, 2s2, 2p5";
