@@ -117,7 +117,7 @@ class Mole extends React.Component{
                 <br />
 
                 <h3>{this.state.status}</h3>
-                <br /><br />
+                <br />
                 {this.state.show_steps === 0? null : this.state.steps.split('\n').map(i => {
                         return <p>{i}</p>
                 })}
