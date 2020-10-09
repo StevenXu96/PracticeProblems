@@ -6,6 +6,7 @@ import MoleCalc from './Chemistry/MoleCalc/MoleCalc'
 import Mole from './Chemistry/Mole/Mole'
 import Stoichiometry from './Chemistry/Stoichiometry/Stoichiometry'
 import Solution_chemistry from './Chemistry/Solution_chemistry/Solution_chemistry';
+import Atomic from './Chemistry/Atomic/Atomic'
 
 function App() {
   return(
@@ -20,6 +21,7 @@ function App() {
                     <Route path={"/Mole"} component={Mole} />
                     <Route path={"/Stoichiometry"} component={Stoichiometry} />
                     <Route path={"/Solution_chemistry"} component={Solution_chemistry} />
+                    <Route path={"/Atomic"} component={Atomic} />
                 </Switch>
             </BrowserRouter>
         </div>

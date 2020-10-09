@@ -19,6 +19,9 @@ class Chemistry extends React.Component{
                 <div className="chapter">
                     <h4><Link to={'/Solution_chemistry'} id="Solution_chemistry"> Solution Chemistry </Link></h4>
                 </div>
+                <div className="chapter">
+                    <h4><Link to={'/Atomic'} id="Atomic"> Atomic Theory </Link></h4>
+                </div>
             </div>
         )
     }

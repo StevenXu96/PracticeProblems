@@ -1,7 +1,7 @@
 import React from 'react'
 import * as Questions from './Question_Bank'
 
-class Mole extends React.Component{
+class Atomic extends React.Component{
 
     constructor(props) {
         super(props);
@@ -9,11 +9,14 @@ class Mole extends React.Component{
             answer_key: "",
             answer: "",
             question: "",
+            A: "",
+            B: "",
+            C: "",
+            D: "",
+            E: "",
             index: 0,
             status: "",
-            create: 1,
-            steps: "",
-            show_steps: 0
+            create: 1
         }
         this.handleChange = this.handleChange.bind(this);
         this.createQuestion = this.createQuestion.bind(this);
@@ -27,28 +30,14 @@ class Mole extends React.Component{
         if (name === "submit"){
             this.check()
         }
-        else if (name === "show_answer"){
-            this.setState({
-                show_steps: 1
-            })
-        }
         else if (name === "next"){
             this.setState(prevState =>  {
                 return {
                     index: prevState.index + 1,
                     status: "",
                     create: 1,
-                    answer: "",
-                    show_steps: 0
+                    answer: ""
                 }
-            })
-        }
-        else{
-            this.setState({
-                status: "",
-                create: 1,
-                answer: "",
-                show_steps: 0
             })
         }
     }
@@ -78,12 +67,16 @@ class Mole extends React.Component{
         if (this.state.create === 1){
             const quest = Questions.makeQuestion(this.state.index)
 
-            if (this.state.answer_key !== quest[1]){
+            if (this.state.question !== quest[0]){
                 this.setState({
-                    answer_key : quest[1],
+                    answer_key : quest[6],
                     question: quest[0],
-                    create: 0,
-                    steps: quest[2]
+                    A: quest[1],
+                    B: quest[2],
+                    C: quest[3],
+                    D: quest[4],
+                    E: quest[5],
+                    create: 0
                 })
             }
             else{
@@ -97,7 +90,7 @@ class Mole extends React.Component{
         return (
             <div className="Question">
 
-                <h3>Question number: {this.state.index%3 + 1}</h3>
+                <h3>Question number: {this.state.index%10 + 1}</h3>
 
                 <div>
                     {this.state.question}
@@ -105,26 +98,53 @@ class Mole extends React.Component{
 
                 <br />
 
-                <input type="text" onChange={this.handleChange} placeholder="ANSWER" value={this.state.answer} />
+                <div id='block-11' >
+                    <label for='option-11' >
+                    <input type='radio' name='option' value='A' id='option-11' onClick={this.handleChange} checked={this.state.answer === "A"} />
+                    {this.state.A}</label>
+                </div>
+                <br />
+
+                <div id='block-12' >
+                    <label for='option-12' >
+                    <input type='radio' name='option' value='B' id='option-12' onClick={this.handleChange} checked={this.state.answer === "B"}/>
+                    {this.state.B}</label>
+                </div>
+                <br />
+
+                <div id='block-13' >
+                    <label for='option-13' >
+                    <input type='radio' name='option' value='C' id='option-13' onClick={this.handleChange} checked={this.state.answer === "C"}/>
+                    {this.state.C}</label>
+                </div>
+                <br />
+
+                <div id='block-14' >
+                    <label for='option-14' >
+                    <input type='radio' name='option' value='D' id='option-14' onClick={this.handleChange} checked={this.state.answer === "D"}/>
+                    {this.state.D}</label>
+                </div>
+                <br />
+
+                <div id='block-15' >
+                    <label for='option-15' >
+                    <input type='radio' name='option' value='E' id='option-15' onClick={this.handleChange} checked={this.state.answer === "E"}/>
+                    {this.state.E}</label>
+                </div>
+                <br />
 
                 <br /> <br />
                 
                 <button className="submit" onClick={this.handleClick}>Submit</button>
                 <button className="next" onClick={this.handleClick}>Next Question</button>
-                <button className="refresh" onClick={this.handleClick}>Try With Different Values</button>
-                <button className="show_answer" onClick={this.handleClick}>Show Answer</button>
                 <br />
                 <br />
 
                 <h3>{this.state.status}</h3>
-                <br /><br />
-                {this.state.show_steps === 0? null : this.state.steps.split('\n').map(i => {
-                        return <p>{i}</p>
-                })}
             </div>
         )
     }
 
 }
 
-export default Mole
+export default Atomic
